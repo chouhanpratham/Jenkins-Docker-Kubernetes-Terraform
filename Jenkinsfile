@@ -94,7 +94,7 @@ pipeline {
                 kubectl get nodes
 
                 echo "Getting Service Details:"
-                kubectl get svc webapi-service
+                kubectl get svc webapidocker-service
                 '''
             }
         }
