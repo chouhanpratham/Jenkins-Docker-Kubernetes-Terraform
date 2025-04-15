@@ -27,7 +27,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh "docker-build -load -t ${ACR_LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} -f WebApiDocker/Dockerfile WebApiDocker"
+                sh "docker buildx build --platform linux/amd64 -t ${ACR_LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_TAG} -f WebApiDocker/Dockerfile WebApiDocker"
             }
         }
 
