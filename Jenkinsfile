@@ -87,6 +87,17 @@ pipeline {
                 sh "kubectl apply -f deployment.yaml"
             }
         }
+        stage('Check Deployment') {
+            steps {
+                sh '''
+                echo "Getting AKS Nodes:"
+                kubectl get nodes
+
+                echo "Getting Service Details:"
+                kubectl get svc webapi-service
+                '''
+            }
+        }
     }
 
     post {
